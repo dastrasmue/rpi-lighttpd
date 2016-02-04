@@ -1,4 +1,7 @@
-# lighttpd Docker image
+# Raspberry Pi - lighttpd Docker image
+
+This is a fork of sebp/lighttpd (https://github.com/spujadas/lighttpd-docker) to make this docker image of a lighttpd server running on a raspberry pi. Alpine is used as a base image to ensure the smallest docker image size possible.
+
 
 Security, speed, compliance, and flexibility -- all of these describe [lighttpd](http://www.lighttpd.net/)
 
@@ -18,14 +21,14 @@ In the instructions that follow, replace `<home-directory>` with the path of the
 
 ### Start a container with Docker
 
-	$ sudo docker run --rm -t -v <home-directory>:/var/www/localhost/htdocs -p <http-port>:80 sebp/lighttpd
+	$ sudo docker run --rm -t -v <home-directory>:/var/www/localhost/htdocs -p <http-port>:80 dastrasmue/rpi-lighttpd
 
 ### Start a container with Docker Compose
 
 Add the following lines in an existing or a new `docker-compose.yml` file:
 
 	lighttpd:
-	  image: sebp/lighttpd
+	  image: dastrasmue/rpi-lighttpd
 	  volumes:
 	    - <home-directory>:/var/www/localhost/htdocs
 	  ports:
@@ -38,7 +41,7 @@ Then start a lighttpd container with:
 
 ## Build
 
-First clone or download the [spujadas/lighttpd-docker](https://github.com/spujadas/lighttpd-docker) GitHub repository, open a shell in the newly created `lighttpd-docker` directory, then build the image and run a container using Docker or Docker Compose, as explained below.
+First clone or download the [dastrasmue/rpi-lighttpd](https://github.com/dastrasmue/rpi-lighttpd) GitHub repository, open a shell in the newly created `rpi-lighttpd` directory, then build the image and run a container using Docker or Docker Compose, as explained below.
 
 ### Build with Docker
 
