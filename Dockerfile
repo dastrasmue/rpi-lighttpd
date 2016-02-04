@@ -1,6 +1,5 @@
-# Dockerfile for lighttpd
-
-FROM alpine
+FROM hypriot/rpi-alpine-scratch
+MAINTAINER Daniel S.
 
 RUN apk add --update lighttpd \
  && rm -rf /var/cache/apk/*
