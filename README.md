@@ -21,14 +21,14 @@ In the instructions that follow, replace `<home-directory>` with the path of the
 
 ### Start a container with Docker
 
-	$ sudo docker run --rm -t -v <home-directory>:/var/www/localhost/htdocs -p <http-port>:80 dastrasmue/rpi-lighttpd
+	$ sudo docker run --rm -t -v <home-directory>:/var/www/localhost/htdocs -p <http-port>:80 dastrasmue/rpi-lighttpd:v2
 
 ### Start a container with Docker Compose
 
 Add the following lines in an existing or a new `docker-compose.yml` file:
 
 	lighttpd:
-	  image: dastrasmue/rpi-lighttpd
+	  image: dastrasmue/rpi-lighttpd:v2
 	  volumes:
 	    - <home-directory>:/var/www/localhost/htdocs
 	  ports:
@@ -36,7 +36,7 @@ Add the following lines in an existing or a new `docker-compose.yml` file:
 
 Then start a lighttpd container with:
 
-	$ sudo docker-compose up lighttpd
+	$ sudo docker-compose up
 
 
 ## Build
