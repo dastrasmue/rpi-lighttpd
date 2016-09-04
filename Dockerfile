@@ -4,9 +4,10 @@ MAINTAINER Daniel S.
 RUN apk add --update lighttpd \
  && rm -rf /var/cache/apk/*
 
-## workaround for bug preventing sync between VirtualBox and host
-# http://serverfault.com/questions/240038/lighttpd-broken-when-serving-from-virtualbox-shared-folder
-RUN echo server.network-backend = \"writev\" >> /etc/lighttpd/lighttpd.conf
+RUN mkdir -p /var/cache/lighttpd/compress/ \
+ && chown -R lighttpd /var/cache/lighttpd/compress/
+
+COPY lighttpd.conf /etc/lighttpd/lighttpd.conf
 
 EXPOSE 80
 
